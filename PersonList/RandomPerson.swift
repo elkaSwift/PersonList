@@ -17,11 +17,16 @@ struct Person{
 extension Person {
     static func getPersons() -> [Person] {
         var persons: [Person] = []
-        for _ in 0..<DataManager.shared.names.count{
-            let person = Person(name: "\(DataManager.shared.names.randomElement() ?? "")",
-                                surname: "\(DataManager.shared.surnames.randomElement() ?? "")",
-                                phone: "\(DataManager.shared.phones.randomElement() ?? "")",
-                                email: "\(DataManager.shared.emails.randomElement() ?? "")")
+        let names = DataManager.shared.names.shuffled()
+        let surnames = DataManager.shared.surnames.shuffled()
+        let phones = DataManager.shared.phones.shuffled()
+        let emails = DataManager.shared.emails.shuffled()
+        
+        for index in 0..<names.count {
+            let person = Person(name: names[index],
+                                surname: surnames[index],
+                                phone: phones[index],
+                                email: emails[index])
             persons.append(person)
         }
         return persons
