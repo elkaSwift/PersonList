@@ -9,28 +9,25 @@ import UIKit
 
 class PersonListViewController: UITableViewController {
     
-    private var personList = DataManager.shared
+    var persons: [Person]!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        
-    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        persons.count
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "person", for: indexPath)
-        
-        let person = personList.namesAndSurnames[indexPath.row]
-        
+
+        let person = persons[indexPath.row]
         var content = cell.defaultContentConfiguration()
-        content.text = person
-        
+        content.text = ("\(person.name) \(person.surname)")
+
         cell.contentConfiguration = content
         return cell
     }
@@ -40,14 +37,10 @@ class PersonListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let personDetailsVC = segue.destination as? PersonDetailsViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        let personPhone = personList.phones[indexPath.row]
-        let personEmail = personList.emails[indexPath.row]
-        let personNameAndSurname = personList.namesAndSurnames[indexPath.row]
-        personDetailsVC.phone = personPhone
-        personDetailsVC.email = personEmail
-        personDetailsVC.navigationItem.title = personNameAndSurname
-        
+        let person = persons[indexPath.row]
+        personDetailsVC.person = person
+        personDetailsVC.navigationItem.title = ("\(person.name) \(person.surname)")
     }
-    
-
 }
+
+

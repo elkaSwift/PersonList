@@ -12,24 +12,11 @@ class PersonDetailsViewController: UIViewController {
     @IBOutlet weak var phonesLabel: UILabel!
     @IBOutlet weak var emailsLabel: UILabel!
     
-    var phone: String!
-    var email: String!
+    var person: Person!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        phonesLabel.text = "phone: \(phone ?? "")"
-        emailsLabel.text = "email: \(email ?? "")"
+        phonesLabel.text = "phone: \(person.phone)"
+        emailsLabel.text = "email: \(person.email)"
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
