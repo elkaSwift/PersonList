@@ -11,29 +11,23 @@ class DataManager {
     
     static let shared = DataManager()
     
-    let names = [
-        "John", "Aaron", "Tim", "Ted",
-        "Steven", "Sharon", "Nicola",
-        "Allan", "Bruce", "Carl"
-    ]
-    
-    let surname = [
-        "Smith", "Dow", "Isaacson", "Pennyworth",
-        "Jankin", "Butler", "Black", "Robertson",
-        "Murphy", "Williams"
+    let namesAndSurnames = [
+        "John Smith", "Aaron Dow", "Tim Isaacson", "Ted Pennyworth",
+        "Steven Jankin", "Sharon Butler", "Nicola Black",
+        "Allan Robertson", "Bruce Murphy", "Carl Williams"
     ]
     
     let emails = [
-        "jjjj@mail.ru", "aaaa@mail.ru", "eeee@mail.ru",
-        "hhhh@mail.ru", "wwww@mail.ru", "mmmm@mail.ru",
-        "xxxx@mail.ru", "pppp@mail.ru", "ssss@mail.ru",
-        "llll@mail.ru"
+        "john.smith@mail.ru", "aaron.dow@mail.ru", "tim.isaacson@mail.ru",
+        "ted.pennyworth@mail.ru", "steven.jankin@mail.ru", "sharon.butler@mail.ru",
+        "nicola.black@mail.ru", "allan.robertson@mail.ru", "bruce.murphy@mail.ru",
+        "carl.williams@mail.ru"
     ]
     
     let phones = [
-        "745396026", "145036843", "287185656", "293520954",
-        "562880225", "738594072", "825654134", "645898473",
-        "432349845", "459477625"
+        "79641340347", "74668389182", "88235639184", "79245168291",
+        "86530281571", "89873451630", "88630981301", "70092371891",
+        "78256108719", "80981305191"
     ]
     
     private init() {}

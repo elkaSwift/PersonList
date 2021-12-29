@@ -38,7 +38,15 @@ class PersonListViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let personDetailsVC = segue.destination sa? PersonDetailsViewController
+        guard let personDetailsVC = segue.destination as? PersonDetailsViewController else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let personPhone = personList.phones[indexPath.row]
+        let personEmail = personList.emails[indexPath.row]
+        let personNameAndSurname = personList.namesAndSurnames[indexPath.row]
+        personDetailsVC.phone = personPhone
+        personDetailsVC.email = personEmail
+        personDetailsVC.navigationItem.title = personNameAndSurname
+        
     }
     
 
